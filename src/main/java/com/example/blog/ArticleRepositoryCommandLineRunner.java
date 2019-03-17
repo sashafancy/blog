@@ -1,6 +1,5 @@
 package com.example.blog;
 
-import com.example.blog.service.ArticleDAOService;
 import com.example.blog.entity.Article;
 import com.example.blog.service.ArticleRepository;
 import org.slf4j.Logger;
@@ -13,6 +12,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Data preloading.
+ */
 @Component
 public class ArticleRepositoryCommandLineRunner implements CommandLineRunner {
 
@@ -23,7 +25,7 @@ public class ArticleRepositoryCommandLineRunner implements CommandLineRunner {
     private ArticleRepository articleRepository;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         Article article = new Article("another title", "Sophie Zhang", LocalDateTime.now(), LocalDateTime.now(), "Default content.");
         articleRepository.save(article);
         log.info("new article is created : " + article);

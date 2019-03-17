@@ -5,7 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-// Table - Article
+/**
+ * Table - Article.
+  */
 @Entity
 public class Article {
 
