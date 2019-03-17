@@ -12,28 +12,31 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Data preloading.
- */
+/** Data preloading. */
 @Component
 public class ArticleRepositoryCommandLineRunner implements CommandLineRunner {
 
-    private static final Logger log =
-            LoggerFactory.getLogger(ArticleRepositoryCommandLineRunner.class);
+  private static final Logger log =
+      LoggerFactory.getLogger(ArticleRepositoryCommandLineRunner.class);
 
-    @Autowired
-    private ArticleRepository articleRepository;
+  @Autowired private ArticleRepository articleRepository;
 
-    @Override
-    public void run(String... args) {
-        Article article = new Article("another title", "Sophie Zhang", LocalDateTime.now(), LocalDateTime.now(), "Default content.");
-        articleRepository.save(article);
-        log.info("new article is created : " + article);
+  @Override
+  public void run(String... args) {
+    Article article =
+        new Article(
+            "another title",
+            "Sophie Zhang",
+            LocalDateTime.now(),
+            LocalDateTime.now(),
+            "Default content.");
+    articleRepository.save(article);
+    log.info("new article is created : " + article);
 
-        Optional<Article> articleWithIdOne = articleRepository.findById(1L);
-        log.info("Article is retrieved : " + articleWithIdOne);
+    Optional<Article> articleWithIdOne = articleRepository.findById(1L);
+    log.info("Article is retrieved : " + articleWithIdOne);
 
-        List<Article> articles = articleRepository.findAll();
-        log.info("All articles : " + articles);
-    }
+    List<Article> articles = articleRepository.findAll();
+    log.info("All articles : " + articles);
+  }
 }
