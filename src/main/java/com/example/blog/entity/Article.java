@@ -1,8 +1,11 @@
 package com.example.blog.entity;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.sql.Clob;
 import java.time.LocalDateTime;
 
 /** Table - Article. */
@@ -14,6 +17,8 @@ public class Article {
   private String author;
   private LocalDateTime createdTime;
   private LocalDateTime lastModifiedTime;
+
+  @Length(max = 300000)
   private String content;
 
   protected Article() {}
