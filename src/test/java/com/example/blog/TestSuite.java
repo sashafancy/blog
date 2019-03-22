@@ -6,5 +6,4 @@ import org.junit.runner.RunWith;
 
 @RunWith(JUnitPlatform.class)
 @SelectPackages("com.example.blog")
-public class TestSuite {
-}
+public class TestSuite {}

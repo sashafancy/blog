@@ -13,18 +13,21 @@ public class MainPageErrorController implements ErrorController {
 
   @RequestMapping("/error")
   public String handleError(HttpServletRequest request, Model theModel) {
-
-    int statusCode = (int) request.getAttribute("javax.servlet.error.status_code");
+    Object obj = request.getAttribute("javax.servlet.error.status_code");
+    int statusCode = 400;
+    if (obj != null) {
+      statusCode = (int) obj;
+    }
     String errorMsg = "";
 
     if (statusCode == 400) {
       errorMsg = "Bad Request";
-    } else if (statusCode == 401){
+    } else if (statusCode == 401) {
       errorMsg = "Unauthorized";
     } else if (statusCode == 404) {
       errorMsg = "Resource not found";
     } else {
-      errorMsg = "Http Error Code: 500. Internal Server Error";
+      errorMsg = "Internal Server Error";
     }
 
     theModel.addAttribute("errorCode", statusCode);
