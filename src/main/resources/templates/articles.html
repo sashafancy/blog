@@ -15,14 +15,53 @@
 
 </head>
 <body>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">MyBlog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Articles <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">What's new</a>
+                <a class="nav-item nav-link" href="#">About me</a>
+            </div>
+        </div>
+    </nav>
+</div>
 
 <div th:class="container">
-    <table>
-        <tr th:each="article: ${articles}">
-            <a th:href="'articles/' + ${article.id}"><h4 th:text="${article.title}"></h4></a>
-            <p th:text="${article.content}"/>
-        </tr>
-    </table>
+    <div th:class="row">
+        <div th:class="col-8">
+            <div th:each="article: ${articles}">
+                <a style="text-decoration: none" th:href="'articles/' + ${article.id}"><h4 th:class="text-muted"
+                                                                                           th:text="${article.title}"></h4>
+                </a>
+                <p th:text="${article.content}"/>
+            </div>
+        </div>
+
+        <div th:class="col-1"></div>
+        <div th:class="col-3">
+            <h2>
+                <strong>About Me</strong>
+            </h2>
+            <h6>
+                <strong>MY NAME IS SOPHIE</strong>
+            </h6>
+            <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id hendrerit ex.
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+                turpis egestas. Quisque pretium urna mauris, et elementum risus tincidunt et.
+                Duis gravida augue nec elit fermentum elementum. Proin elementum imperdiet lacinia.
+                Donec ut nibh at mi varius feugiat. Praesent lacus risus, mollis eu neque id,
+                fermentum consequat metus. Nulla et scelerisque velit. Nunc blandit viverra
+                dui sed consectetur. Duis ultrices bibendum vulputate. Ut urna mauris, lobortis
+                eget pellentesque eu, pharetra nec nulla.</P>
+            <hr color="orange">
+        </div>
+    </div>
 </div>
 
 </body>
