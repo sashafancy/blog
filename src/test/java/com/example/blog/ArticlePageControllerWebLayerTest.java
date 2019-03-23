@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.mockito.Mockito.when;
@@ -30,11 +31,12 @@ public class ArticlePageControllerWebLayerTest {
 
   @BeforeEach
   public void setup() {
-    List<Article> articleList =
-        new ArrayList<>(
-            Arrays.asList(
-                new Article(
-                    "title", "author", LocalDateTime.now(), LocalDateTime.now(), "content")));
+    Article article =
+        new Article("title", "author", LocalDateTime.now(), LocalDateTime.now(), "content");
+
+    List<Article> articleList = new ArrayList<>(Arrays.asList(article));
+
+    when(mockArticleRepository.findById(1L)).thenReturn(Optional.of(article));
     when(mockArticleRepository.findAll()).thenReturn(articleList);
   }
 
@@ -42,6 +44,14 @@ public class ArticlePageControllerWebLayerTest {
   public void shouldReturnArticles() throws Exception {
     this.mockMvc
         .perform(get("/articles"))
+        .andExpect(status().isOk())
+        .andExpect(content().string(containsString("content")));
+  }
+
+  @Test
+  public void shouldReturnSingleArticle() throws Exception {
+    this.mockMvc
+        .perform(get("/articles/1"))
         .andExpect(status().isOk())
         .andExpect(content().string(containsString("content")));
   }

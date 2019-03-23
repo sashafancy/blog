@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Blog</title>
+    <title>Article Details</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -18,8 +18,10 @@
 
 <div th:class="container">
     <table>
-        <tr th:each="article: ${articles}">
-            <a th:href="'articles/' + ${article.id}"><h4 th:text="${article.title}"></h4></a>
+        <tr>
+            <h4 th:text="${article.title}"/>
+            <h6 th:text="'Author: ' + ${article.author}"/>
+            <h6 th:text="'Created at: ' + ${article.createdTime}"/>
             <p th:text="${article.content}"/>
         </tr>
     </table>
