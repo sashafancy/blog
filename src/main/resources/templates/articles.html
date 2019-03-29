@@ -41,6 +41,14 @@
                 </a>
                 <p th:text="${article.content}"/>
             </div>
+
+            <div>
+                <a th:href="@{/newArticle-form}"
+                   class="btn btn-primary btn-sm mb-3">
+                    New Article
+                </a>
+            </div>
+
         </div>
 
         <div th:class="col-1"></div>

@@ -5,7 +5,6 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.sql.Clob;
 import java.time.LocalDateTime;
 
 /** Table - Article. */
@@ -21,7 +20,7 @@ public class Article {
   @Length(max = 300000)
   private String content;
 
-  protected Article() {}
+  public Article() {}
 
   public Article(
       String title,
@@ -58,6 +57,26 @@ public class Article {
 
   public String getContent() {
     return content;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public void setAuthor(String author) {
+    this.author = author;
+  }
+
+  public void setCreatedTime(LocalDateTime createdTime) {
+    this.createdTime = createdTime;
+  }
+
+  public void setLastModifiedTime(LocalDateTime lastModifiedTime) {
+    this.lastModifiedTime = lastModifiedTime;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
   }
 
   @Override
