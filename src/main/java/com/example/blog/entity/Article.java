@@ -59,6 +59,26 @@ public class Article {
     return content;
   }
 
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public void setAuthor(String author) {
+    this.author = author;
+  }
+
+  public void setCreatedTime(LocalDateTime createdTime) {
+    this.createdTime = createdTime;
+  }
+
+  public void setLastModifiedTime(LocalDateTime lastModifiedTime) {
+    this.lastModifiedTime = lastModifiedTime;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
+  }
+
   @Override
   public String toString() {
     return "Article{"

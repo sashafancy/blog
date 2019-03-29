@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,6 +50,7 @@ public class ArticlePageController {
   @RequestMapping(method = RequestMethod.POST, path = "/save")
   public String saveArticle(@ModelAttribute("article") Article theArticle) {
 
+    theArticle.setCreatedTime(LocalDateTime.now());
     articleRepository.save(theArticle);
 
     // Use a redirect to prevent duplicate submissions
