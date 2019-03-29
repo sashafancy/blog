@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new article</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+</head>
+<body>
+
+    <div th:class="container">
+
+        <h3>Article Directory</h3>
+        <hr>
+
+        <p class="h4 mb">Save Article</p>
+
+        <form action="#" th:action="@{/save}"
+              th:object="${article}" method="post">
+
+            <input type="text" th:field="*{author}"
+                    class="form-control mb-4 col-4" placeholder="author">
+
+            <input type="text" th:field="*{content}"
+                   class="form-control mb-4 col-4" placeholder="content">
+
+            <button type="submit" class="btn btn-info col-2">Save</button>
+
+
+        </form>
+
+        <hr>
+        <a th:href="@{/articles}">Back to article list page</a>
+    </div>
+
+</body>
+</html>

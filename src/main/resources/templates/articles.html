@@ -12,6 +12,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script th:src="@{/editormd-master/editormd.js}"></script>
 
 </head>
 <body>
@@ -41,6 +49,14 @@
                 </a>
                 <p th:text="${article.content}"/>
             </div>
+
+            <div>
+                <a th:href="@{/newArticle-form}"
+                   class="btn btn-primary btn-sm mb-3">
+                    New Article
+                </a>
+            </div>
+
         </div>
 
         <div th:class="col-1"></div>
